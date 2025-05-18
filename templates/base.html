@@ -1,0 +1,123 @@
+{% load static i18n %}
+{% url 'home' as homepage_url %}
+
+<!DOCTYPE html>
+<html lang="{% get_current_language as LANGUAGE_CODE %}{% if not LANGUAGE_CODE %}en{% endif %}">
+<head>
+    {% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Burlesque">
+    <meta name="keywords" content="burlesque, Paris, dance">
+    {% endblock %}
+    {% block extra_meta %}{% endblock %}
+
+    <title>{% block title %}{% trans "Burlesque" %}{% endblock %}</title>
+
+    <link rel="canonical" href="{{ canonical_url }}" />
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" href="#" hreflang="en" />
+    <link rel="alternate" href="#" hreflang="da" />
+    <link rel="alternate" href="#" hreflang="ja" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+          crossorigin="anonymous">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Afacad&family=Cinzel:wght@400;700&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <img src="{% static 'images/logo.png' %}" alt="{% trans 'Logo' %}" loading="lazy" class="loading-logo">
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <!-- Additional JS -->
+    {% block extra_js %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer-cover text-white py-4"></footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Loading Overlay Script -->
+    <script>
+    window.addEventListener('load', function () {
+        var overlay = document.getElementById('loading-overlay');
+        overlay.style.opacity = 0;
+        overlay.addEventListener('transitionend', function() {
+            overlay.style.display = 'none';
+        });
+    });
+    </script>
+
+    <!-- Toast Script -->
+    <script>
+    $(document).ready(function() {
+        $(".toast").toast({ autohide: true, delay: 5000 }).toast("show");
+    });
+    </script>
+
+<!-- Custom JavaScript for Language Switching -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        var currentUrl = window.location.pathname;
+        var urlParams = new URLSearchParams(window.location.search);
+    
+        // If there's a language parameter in the URL, prioritize it and update storage
+        if (urlParams.has('lang')) {
+            preferredLanguage = urlParams.get('lang');
+            localStorage.setItem('preferredLanguage', preferredLanguage);
+        }
+    
+        console.log('Current URL:', currentUrl);
+        console.log('Preferred Language:', preferredLanguage);
+    
+        // Ensure special cases like confirmation links are respected
+        if (currentUrl.startsWith('/accounts/confirm-email')) {
+            console.log('Email confirmation page detected. Keeping the current language.');
+            return; // Avoid redirecting on confirmation links
+        }
+    
+        // Redirect to preferred language if not already set
+        if (!currentUrl.startsWith('/' + preferredLanguage)) {
+            console.log(`Redirecting to ${preferredLanguage} version...`);
+            window.location.href = `/${preferredLanguage}${baseUrl}`;
+        }
+    });
+    
+    function switchLanguage(langCode) {
+        localStorage.setItem('preferredLanguage', langCode);
+        var currentUrl = window.location.pathname;
+    
+        // Redirect to the selected language
+        window.location.href = `/${langCode}${baseUrl}`;
+    }    
+</script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

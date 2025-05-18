@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+<!-- Extra CSS -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+{% endblock %}
+
+{% block head %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+    {{ block.super }}  <!-- Include any other head tags -->
+{% endblock %}
+
+{% block title %}{% trans "Homepage" %}{% endblock %}
+
+{% block content %}
+<div class="burlesque-container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="welcome-text">Welcome</div>
+        <div class="fr-label">FR v</div>
+        <div class="rectangle-89"></div>
+        <div class="screenshot-image"></div>
+        <h1 class="welcome-heading">Welcome to the Burlesque’s world</h1>
+        <div class="vector-65"></div>
+        <div class="vector-75"></div>
+    </section>
+</div>
+{% endblock %}
