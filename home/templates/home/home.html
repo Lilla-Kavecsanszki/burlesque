@@ -4,8 +4,7 @@
 
 <!-- Extra CSS -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" />
-<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %}
 
 {% block head %}
@@ -16,8 +15,8 @@
 {% block title %}{% trans "Homepage" %}{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
 <div class="burlesque-container">
+<!-- Hero Section -->
 <section class="hero">
         <!-- Image on the right -->
     <div id="hero-image" class="hero-image" role="img" aria-label="{% trans 'Dancer Women Image' %}">
@@ -39,7 +38,74 @@
     <div class="vector-65"><i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i></div>
     <div class="vector-75"><i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i></div>
 </section>
-    
+<!-- Map Section -->
+<section class="show-finder-section py-5">
+    <div class="container">
+      <h2 class="section-title mb-4">
+        Quand souhaitez vous voir un spectacle ?
+        <span class="divider-icon ml-2">💠</span>
+      </h2>
+      <div class="row">
+        <!-- Left Form Column -->
+        <div class="col-md-5">
+          <form>
+            <!-- Date Picker -->
+            <div class="form-group">
+              <label for="date">{% trans "Sélectionnez la ou les dates" %}</label>
+              <div class="input-group">
+                <input type="text" id="date" class="form-control" placeholder="{% trans 'Aujourd’hui' %}">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Spectacle Type -->
+            <div class="form-group">
+              <label for="type">{% trans "Choisissez le type de spectacle" %}</label>
+              <select id="type" class="form-control">
+                <option selected>Cabaret</option>
+                <option>Drag</option>
+                <option>Burlesque</option>
+                <option>Queer</option>
+              </select>
+            </div>
+  
+            <!-- City Input -->
+            <div class="form-group">
+              <label for="city">{% trans "Dans quelle ville ?" %}</label>
+              <input type="text" id="city" class="form-control" placeholder="{% trans 'Entrez la ville' %}">
+            </div>
+  
+            <!-- Price Range -->
+            <div class="form-group">
+              <label>{% trans "Le prix" %}</label>
+              <input type="range" class="custom-range" min="0" max="100" step="1">
+              <div class="d-flex justify-content-between">
+                <span>€0</span>
+                <span>€100+</span>
+              </div>
+            </div>
+  
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block mt-3 discover-btn">
+              {% trans "Découvrir" %}
+            </button>
+          </form>
+        </div>
+  
+        <!-- Right Map Column -->
+        <div class="col-md-7">
+          <!-- Map -->
+          <div class="map-container">
+            <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12297.124960321248!2d8.58252955367728!3d39.90184306563145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c4bff05aaff4d7%3A0x8c017bf383d54b38!2sVia%20Cagliari%2C%2047%2C%2009170%20Oristano%20OR%2C%20Italy!5e0!3m2!1sen!2sus!4v1696570623345!5m2!1sen!2sus"
+    width="600" height="450" style="border:0;" title="Map of the business" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>  
     
 </div>
 {% endblock %}
