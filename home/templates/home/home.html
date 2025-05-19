@@ -16,16 +16,30 @@
 {% block title %}{% trans "Homepage" %}{% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
 <div class="burlesque-container">
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="welcome-text">Welcome</div>
-        <div class="fr-label">FR v</div>
-        <div class="rectangle-89"></div>
-        <div class="screenshot-image"></div>
-        <h1 class="welcome-heading">Welcome to the Burlesque’s world</h1>
-        <div class="vector-65"></div>
-        <div class="vector-75"></div>
-    </section>
+<section class="hero">
+        <!-- Image on the right -->
+    <div id="hero-image" class="hero-image" role="img" aria-label="{% trans 'Dancer Women Image' %}">
+        <img 
+        src="{% static 'images/burlesque_hero.png' %}" 
+        alt="{% trans 'Dancer women performing on stage' %}" 
+        loading="lazy"
+        >
+    </div>
+
+    <!-- Text on the left -->
+    <div class="overlay">
+        <div class="welcome-heading">
+            <h1 class="welcome">Welcome to the world of Burlesque</h1>
+            <p class="hero-text mt-3">{% trans "Bienvenue sur le site dédié à 100% au monde du spectacle burlesque, cabaret, queer, drag, etc...." %}</p>
+            <span class="typewriter nocaret"></span>
+        </div>
+    </div>
+    <div class="vector-65"><i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i></div>
+    <div class="vector-75"><i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i></div>
+</section>
+    
+    
 </div>
 {% endblock %}

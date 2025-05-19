@@ -49,30 +49,112 @@
     <!-- Header Section -->
     <header>
         <!-- Main Desktop Header -->
-        <div id="topnav" class="row nav-background pt-lg-2 d-none d-lg-flex align-items-center">
-            <div class="col-lg-6 d-flex justify-content-start align-items-center">
+        <div id="topnav" class="nav-background py-2 d-none d-lg-flex align-items-center px-3">
+            <div class="col-lg-1 d-flex justify-content-start align-items-center">
                 <!-- Logo -->
                 <a href="{% url 'home' %}" class="nav-link main-logo-link logo">
                     <img src="{% static 'images/logo.png' %}" alt="{% trans 'Logo' %}" loading="lazy" class="logo-image">
                 </a>
             </div>
-            <div class="col-lg-6 d-flex justify-content-end">
+            <div class="col-lg-11 d-flex justify-content-end">
                 <div class="d-flex justify-content-start align-items-center">
                     <!-- Search Bar -->
-                    <form method="GET" action="#" class="w-100">
+                    <form method="GET" action="#" class="flex-grow-1 me-4">
                         <div class="input-group w-100">
-                            <input class="form-control border-1 bg-transparent" type="text" name="q" placeholder="{% trans 'Search' %}" style="border-bottom: 1px solid #051c2c;">
+                            <input class="form-control border-1 bg-transparent" type="text" name="q" placeholder="{% trans 'Search' %}" style="border: 1px solid #C80757;">
                             <div class="input-group-append">
                                 <button class="form-control btn border-0" type="submit" aria-label="Search">
-                                    <span class="icon"><i class="fas fa-search fa-lg" style="color: #051c2c;"></i></span>
+                                    <span class="icon"><i class="fas fa-search fa-lg" style="color: #C80757;"></i></span>
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+                        <!-- Navigation Bar -->
+                <div class="row nav-background">
+                    <nav class="navbar navbar-expand-lg w-100 col-lg-12 justify-content-end d-flex">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                            <ul class="navbar-nav">
+                                {% if request.user.is_authenticated %}
+                                    <!-- Check if user is superuser -->
+                                    {% if request.user.is_superuser %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                                        </li>
+                                        <!-- Display Subscription link only for superuser -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">{% trans 'Subscription' %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <!-- Always display the following items for authenticated users -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#about">{% trans 'Les cours' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
+                                    </li>
+                                {% else %}
+                                    <!-- Display items for non-authenticated users -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#about">{% trans 'Les cours' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
+                                    </li>
+                                {% endif %}
+                            </ul>                    
+                        </div>
+                    </nav>
+                </div>
+                <!-- Conditionally render the language dropdown only on the homepage -->
+                {% if request.path == homepage_url or request.path == '/' %}
+                <div class="d-flex justify-content-end align-items-center">
+                    <!-- Language Dropdown -->
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="language-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center nav-icon">
+                                    <p class="my-0">{{ LANGUAGE_CODE|upper }}</p>
+                                    <i class="fas fa-sharp fa-regular fa-chevron-down"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="language-options">
+                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'fr' %}active{% endif %}" onclick="switchLanguage('it')">FR</a>
+                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'en' %}active{% endif %}" onclick="switchLanguage('en')">EN</a>
+                            </div>
+                        </li>
+                    </ul>                                                                               
+                </div>
                 <div class="d-flex justify-content-end align-items-center">
                     <!-- Sign-In Link -->
-                    <ul class="list-inline mb-0">
+                    <ul class="list-inline mb-0 me-3">
                         <li class="list-inline-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center nav-icon">
@@ -105,25 +187,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Conditionally render the language dropdown only on the homepage -->
-                {% if request.path == homepage_url or request.path == '/' %}
-                <div class="d-flex justify-content-end align-items-center">
-                    <!-- Language Dropdown -->
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="language-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center nav-icon">
-                                    <i class="fas fa-globe fa-lg"></i>
-                                    <p class="my-0">{{ LANGUAGE_CODE|upper }}</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="language-options">
-                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'it' %}active{% endif %}" onclick="switchLanguage('it')">IT</a>
-                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'en' %}active{% endif %}" onclick="switchLanguage('en')">EN</a>
-                            </div>
-                        </li>
-                    </ul>                                                                               
-                </div>
+                
                 {% endif %}
             </div>
         </div>
@@ -134,69 +198,6 @@
             {% include 'includes/mobile-top-header.html' %}
         </div>
 
-        <!-- Navigation Bar -->
-        <div class="row nav-background">
-            <nav class="navbar navbar-expand-lg w-100 col-lg-12 justify-content-end d-flex">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="main-nav">
-                    <ul class="navbar-nav">
-                        {% if request.user.is_authenticated %}
-                            <!-- Check if user is superuser -->
-                            {% if request.user.is_superuser %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-                                </li>
-                                <!-- Display Construction link only for superuser -->
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">{% trans 'Construction' %}</a>
-                                </li>
-                            {% endif %}
-                            <!-- Always display the following items for authenticated users -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#about">{% trans 'Les cours' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
-                            </li>
-                        {% else %}
-                            <!-- Display items for non-authenticated users -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#about">{% trans 'Les cours' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
-                            </li>
-                        {% endif %}
-                    </ul>                    
-                </div>
-            </nav>
-        </div>
     </header>
     
     {% if messages %}

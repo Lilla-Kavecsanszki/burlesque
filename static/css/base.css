@@ -1,101 +1,265 @@
 /* General container */
 .burlesque-container {
-  position: relative;
   width: 1440px;
   height: 4244px;
   background: #FFFFFF;
-}
-
-/* Welcome text */
-.welcome-text {
-  position: absolute;
-  width: 103px;
-  height: 28px;
-  left: 90px;
-  top: 23px;
-
-  font-family: 'Abril Fatface', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 27px;
+  margin: 0;
+  padding: 0;
+  border: none;
   color: #000000;
+  font-family: "Afacad", sans-serif;
 }
 
-/* FR v (some kind of language switch or label?) */
-.fr-label {
-  position: absolute;
-  width: 137px;
-  height: 31px;
-  left: 1318px;
-  top: 41px;
+/* Header styles */
+header {
+  background-color: #FFFFFF;
+  font-family: "Playfair Display", serif;
+  color: #C80757;
+  padding: 0.3em;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
 
-  font-family: 'Afacad', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 32px;
+.nav-background {
+  padding: 5px 0;
+}
+
+.main-logo-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.logo-font {
+  font-size: 2rem;
+  white-space: nowrap;
+  color: black;
+}
+
+.logo {
+  position: absolute; /* Position the logo absolutely */
+  margin-top: 20%;
+  z-index: 10000; /* Ensure the logo is above the navbar */
+}
+
+.logo-image {
+  max-height: 250px; 
+}
+
+
+.form-control {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#user-name {
   color: #C80757;
 }
 
-/* Black rectangle */
-.rectangle-89 {
-  position: absolute;
-  width: 583px;
-  height: 485px;
-  left: 0;
-  top: 112px;
+#user-name:hover {
+  color: #000000;
+  text-decoration: underline, #C80757;
+}
+
+.nav-icon {
+  color: #C80757;
+}
+
+.nav-icon:hover {
+  color: #000000; 
+  text-decoration: underline, #C80757;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  background-color: #ffffff; /* Ensure the dropdown has a background color */
+  border: 1px solid #ddd; /* Add a border if needed */
+  border-radius: 0.25rem; /* Adjust border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+}
+
+.dropdown-item {
+  color: #C80757; /* Ensure dropdown items have text color */
+}
+
+.dropdown-item:hover {
+  background-color: #a9a9a9; /* Change background color on hover */
+  color: #C80757; /* Ensure text color remains consistent */
+}
+
+/* Ensure that dropdown toggle is properly displayed */
+.dropdown-toggle::after {
+  display: none; /* Remove the default caret if not needed */
+}
+
+#language-options {
+  color: #C80757;
+}
+
+.navbar-nav a {
+  color: #C80757;
+  text-decoration: none;
+  font-size: large;
+}
+
+.navbar-nav a:hover {
+  text-decoration: overline;
+}
+
+/* Icon styles */
+.icon {
+  display: inline-block;
+  color: #C80757;
+}
+
+.icon:hover {
+  color: #a9a9a9;
+  
+}
+
+@media (max-width: 992px) {
+  .d-lg-flex {
+      display: block !important;
+  }
+
+  .d-none.d-lg-flex {
+      display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-font {
+      font-size: 1.5rem;
+  }
+}
+
+/* Ensure dropdown menus are responsive */
+@media (max-width: 992px) {
+  .d-lg-flex {
+      display: block !important;
+  }
+
+  .d-none.d-lg-flex {
+      display: none !important;
+  }
+}
+
+/* Ensure the logo scales on smaller screens */
+@media (max-width: 576px) {
+  .logo-image {
+      max-height: 100px; /* Adjust as needed */
+  }
+}
+
+/* Adjust dropdowns for mobile view */
+@media (max-width: 768px) {
+  .dropdown-menu {
+      width: 100%;
+      box-shadow: none;
+  }
+}
+
+/* FR v (some kind of language switch or label?) */
+/* .fr-label { */
+  /* position: absolute; */
+  /* width: 137px; */
+  /* height: 31px; */
+  /* left: 1318px; */
+  /* top: 41px; */
+/*  */
+  /* font-family: 'Afacad', sans-serif; */
+  /* font-style: normal; */
+  /* font-weight: 600; */
+  /* font-size: 24px; */
+  /* line-height: 32px; */
+  /* color: #C80757; */
+/* } */
+/*  */
+
+/* Hero section */
+.hero {
+  position: relative;
   background: #000000;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
 }
 
 /* Image background */
-.screenshot-image {
+.hero-image {
   position: absolute;
-  width: 1149.66px;
-  height: 485px;
-  left: 579px;
-  top: 112px;
+  top: 0;
+  left: 40%;
+  height: 100%;
+  z-index: 2;
+}
 
-  background: url('Capture d’écran 2025-03-04 à 14.24.42.png') no-repeat;
-  background-size: cover;
+.hero-image img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Large welcome heading */
-.welcome-heading {
-  position: absolute;
-  width: 643px;
-  height: 172px;
-  left: 110px;
-  top: 245px;
 
+.overlay {
+  position: relative;
+  width: 583px;
+  height: 485px;
+  left: 0px;
+  top: 0;
+  background: transparent;
+}
+
+.welcome {
+  position: absolute;
+  z-index: 3;
   font-family: 'Abril Fatface', serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 64px;
+  font-size: 58px;
   line-height: 86px;
   color: #F35C9B;
+
+  width: 600px;
+  height: 172px;
+  left: 110px;
+  top: 245px;
 }
 
-/* Left vertical line */
+.hero-text {
+  position: absolute;
+  z-index: 3;
+  font-family: 'Afacad';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 43px;
+  color: #F35C9B;
+  left: 117px;
+  top: 409px;
+}
+
+/* Chevrons */
+.fa-angles-left, 
+.fa-angles-right {
+  position: absolute;
+  z-index: 3;
+  color: #FFFFFF;
+}
+
 .vector-65 {
   position: absolute;
-  width: 21.5px;
-  height: 103px;
-  left: 74.5px;
-  top: 454px;
-
-  border: 2px solid #FFFFFF;
-  transform: rotate(-180deg);
+  z-index: 3;
+  left: 1.5%;
+  top: 60%;
 }
 
 /* Right vertical line */
 .vector-75 {
   position: absolute;
-  width: 21.5px;
-  height: 103px;
-  left: 1406px;
-  top: 351px;
-
-  border: 2px solid #FFFFFF;
+  z-index: 3;
+  right: 1.5%;
+  top: 60%;
 }
-/* i am at this point! */
