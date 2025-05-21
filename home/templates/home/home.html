@@ -35,13 +35,13 @@
             <span class="typewriter nocaret"></span>
         </div>
     </div>
-    <div class="vector-65"><i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i></div>
-    <div class="vector-75"><i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i></div>
+    <div class="vector-left"><i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i></div>
+    <div class="vector-right"><i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i></div>
 </section>
 <!-- Map Section -->
 <section class="show-finder-section py-5">
     <div class="container">
-      <h2 class="section-title mb-4 d-flex align-items-center">
+      <h2 class="section-title-h2 mb-4 d-flex align-items-center">
         Quand souhaitez vous voir un spectacle ?
         <span class="divider-line ml-2 d-flex align-items-center">
           💠<span class="line flex-grow-1 ml-2"></span>
@@ -89,7 +89,7 @@
             </div>
   
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-3 map-btn d-block mx-auto map-btn">
+            <button type="submit" class="btn btn-primary mt-3 d-block mx-auto project-btn">
               {% trans "Découvrir" %}
             </button>
           </form>
@@ -113,7 +113,140 @@
         </div>
       </div>
     </div>
-  </section>  
-    
+</section>
+<!-- Search Results Section -->
+<section class="show-finder-section py-5">
+  <div class="container">
+      <h3 class="section-title mb-4 d-flex align-items-center">
+        Les résultats de votre recherche
+        <span class="divider-line ml-2 d-flex align-items-center">
+          💠<span class="line flex-grow-1 ml-2"></span>
+        </span>
+      </h3>
+
+  <!-- results  -->
+  </div>
+</section>
+<!-- Troops in the spotlight Section -->
+<section class="troops-section py-5">
+  <div class="container">
+      <h3 class="section-title mb-4 d-flex align-items-center">
+        Les troupes mises à l honneur
+        <span class="divider-line ml-2 d-flex align-items-center">
+          💠<span class="line flex-grow-1 ml-2"></span>
+        </span>
+      </h3>
+      <div class="row align-items-center">
+      
+          <!-- Left Text Column -->
+          <div class="col-md-6 px-4">
+            <h4 class="troop-title"><strong>Le K barré !</strong></h4>
+            <p class="troop-text">
+              Loreme Ipsum. Loreme ipsum lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum lorem ipsum 
+              lorem ipsum lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum.
+            </p>
+            <p class="troop-location mb-1">
+              Rue du Vieux Temple<br>
+              75019 Paris
+            </p>
+            <p class="troop-date">
+              Du 29 Jan au 30 Mars
+            </p>
+
+            <!-- Learn More Button -->
+            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+              {% trans "En savoir plus" %}
+            </button>
+          </div>
+
+          <!-- Right Image Column -->
+          <div class="col-md-6 text-center">
+            <img src="{% static 'images/troop.png' %}" alt="Burlesque Performance" class="img-fluid rounded">
+          </div>
+      </div>
+
+        <!-- Navigation and Pagination -->
+        <div class="d-flex justify-content-center align-items-center mt-4 position-relative">
+          <!-- Left Chevron -->
+          <div class="chevron chevron-left position-absolute" style="left: 0;">
+            <i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-diamonds d-flex gap-3">
+            <div class="diamond active">1</div>
+            <div class="diamond">2</div>
+            <div class="diamond">3</div>
+          </div>
+
+          <!-- Right Chevron -->
+          <div class="chevron chevron-right position-absolute" style="right: 0;">
+            <i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i>
+          </div>
+        </div>
+  </div>
+</section>
+<!-- Articles Section -->
+<section class="articles-section py-5">
+  <div class="container">
+      <h3 class="section-title align-items-center mb-5">
+        Découvrez l’univers du burlesque grâce aux interviews et anecdoctes
+      </h3>
+      <div class="row">
+      
+          <!-- Left Text Column -->
+          <div class="col-md-6">
+            <h4 class="troop-title mb-4"><strong>Josephine Baker</strong></h4>
+            <p class="troop-text article-text">
+              Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem 
+              ipsum lorem ipsum  Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum lorem ipsum lorem ipsum Loreme Ipsum. Lorem ipsum lorem. 
+              Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum  Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum lorem ipsum Loreme Ipsum. Lorem ipsum lorem. Loreme Ipsum. Lorem 
+              ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  Loreme Ipsum. 
+              Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum Loreme 
+              Ipsum. Lorem ipsum lorem. Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum lorem ipsum lorem ipsum  Loreme Ipsum. Lorem ipsum lorem ipsum lorem 
+              ipsum lorem ipsum lorem ipsum lorem ipsum Loreme Ipsum. Lorem ipsum lorem. Loreme 
+              Ipsum. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  
+              Loreme Ipsum. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem 
+              ipsum Loreme Ipsum. Lorem ipsum lorem.
+            </p>
+            <!-- Learn More Button -->
+            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+              {% trans "En lire plus" %}
+            </button>
+          </div>
+          <!-- Right Image Column -->
+          <div class="col-md-6">
+            <img src="{% static 'images/article.png' %}" alt="Relevant Article Photo" class="img-fluid article-img">
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Want to join? Section -->
+<section class="join-section py-5">
+  <div class="container">
+    <div class="row join-div align-items-center">
+    <!-- Left Image Column -->
+      <div class="col-md-7 img-coloumn text-center">
+            <img src="{% static 'images/carneval.png' %}" alt="Relevant Article Photo" class="img-fluid article-img">
+      </div>
+    <!-- Right Text Column -->
+      <div class="col-md-5 text-coloumn">
+        <h3 class="section-title mb-4">Envie d’apparaitre sur le site  ?</h3>
+        <p class="join-text">
+          J’ai une troupe, je gère un cabaret et je veux avoir faire partie du site ? 
+        </p>
+        <!-- Learn More Button -->
+        <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+          {% trans "En savoir plus" %}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 {% endblock %}
