@@ -1,7 +1,7 @@
 /* General container */
 .burlesque-container {
   width: 1440px;
-  height: 4244px;
+  height: auto;
   background: #FFFFFF;
   margin: 0;
   padding: 0;
@@ -273,7 +273,7 @@ footer a .icon {
 }
 
 .icon {
-    color: #C80757w;
+    color: #C80757;
     transition: .5s;
 }
 
