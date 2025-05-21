@@ -159,3 +159,125 @@ header {
       box-shadow: none;
   }
 }
+
+/* FOOTER */
+.footer-text {
+  font-family: 'Afacad';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.footer-cover {
+    background-colour: white;
+    padding: 2rem 0; /* Adjust padding as needed */
+    position: relative;  /* Covering the sticky social buttons in case of overlapping */
+    z-index: 1001;
+}
+
+/* Footer content layout */
+footer .footer-content {
+    width: 100%;
+    max-width: 1200px; /* Adjust for desired maximum width */
+    margin: 0 auto;
+    padding: 0 2rem; /* Add some padding to the sides */
+}
+
+/* Ensure text is aligned to the left */
+.text-left {
+    text-align: left !important;
+}
+
+/* Column content adjustments */
+.footer-logo {
+    max-width: 100px; /* Set a reasonable width for the logo */
+    height: auto; /* Ensure the height scales proportionally */
+    margin-bottom: 20px; /* Add some spacing below the logo */
+}
+
+/* Padding for all columns */
+.footer-content p,
+.footer-content ul {
+    margin: 0;
+}
+
+.footer-link{
+    font-family: 'Afacad';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    color: #C80757;
+    text-decoration: none;
+    padding-top: 1.5%;
+
+}
+
+.footer-link:hover {
+    color: #C80757;
+    text-decoration: overline;
+}
+
+.privacy {
+  font-family: 'Afacad';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    color: #C80757;
+    text-decoration: none;
+    padding-top: 1.5%;
+}
+
+.privacy:hover {
+    color: #C80757;
+    text-decoration: overline;
+}
+
+p.lilla a.email-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+p.lilla a.email-link:hover {
+    text-decoration: underline;
+}
+
+.all-rights {
+  font-size: small;
+}
+
+/* Social media links styles */
+.links {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 35px;
+    margin: 0 10px;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    border: none;
+    position: relative;
+}
+
+footer a .icon {
+    position: relative;
+    color: #C80757;
+    transition: .5s;
+    z-index: 3;
+}
+
+.icon {
+    color: #C80757w;
+    transition: .5s;
+}
+
+.icon:hover {
+    color: white;
+    transform: rotateY(360deg);
+}
