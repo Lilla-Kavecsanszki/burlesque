@@ -146,7 +146,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="language-options">
-                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'fr' %}active{% endif %}" onclick="switchLanguage('it')">FR</a>
+                                <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'fr' %}active{% endif %}" onclick="switchLanguage('fr')">FR</a>
                                 <a href="#" class="dropdown-item {% if LANGUAGE_CODE == 'en' %}active{% endif %}" onclick="switchLanguage('en')">EN</a>
                             </div>
                         </li>
@@ -163,25 +163,21 @@
                                     <p class="my-0">{{ request.user.username }}</p>
                                     {% else %}
                                     <div><i class="far fa-regular fa-user fa-lg"></i></div>
-                                    <p class="my-0">{% trans 'Connexion' %}</p>
+                                    <p class="my-0">{% trans 'Account' %}</p>
                                     {% endif %}
                                 </div>
                             </a>
                             
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
-                                    <!-- superuser -->
-                                    {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">{% trans 'Property Management' %}</a>
-                                    {% endif %}
                                     <a href="#" class="dropdown-item">
-                                        {% trans 'My Favourites' %} 
+                                        {% trans 'My Profile' %} 
                                         <i class="fas fa-star fa-star-base light-base"></i>
                                     </a>
-                                    <a href="#" class="dropdown-item">{% trans 'Logout' %}</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">{% trans 'Logout' %}</a>
                                 {% else %}
-                                    <a href="#" class="dropdown-item">{% trans 'Register' %}</a>
-                                    <a href="#" class="dropdown-item">{% trans 'Login' %}</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">{% trans 'Register' %}</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">{% trans 'Login' %}</a>
                                 {% endif %}
                             </div>
                         </li>

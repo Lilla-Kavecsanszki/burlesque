@@ -58,7 +58,7 @@ header {
 
 .logo {
     position: absolute; /* Position the logo absolutely */
-    margin-top: 5%;
+    margin-top: 0%;
     z-index: 10000; /* Ensure the logo is above the navbar */
 }
 

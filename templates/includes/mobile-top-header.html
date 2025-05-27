@@ -16,13 +16,10 @@
         </a>
         <div class="dropdown-menu dropdown-menu-center border-0" aria-labelledby="user-options-mobile">
             {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-            <a href="{% url 'property_management' %}" class="dropdown-item">{% trans 'Property Management' %}</a>
-            {% endif %}
-            <a href="{% url 'user_profile' %}" class="dropdown-item">
+            {% comment %} <a href="{% url 'user_profile' %}" class="dropdown-item">
                 {% trans 'My Favourites' %} 
                 <i class="fas fa-star fa-star-base light-base"></i>
-            </a>
+            </a> {% endcomment %}
             <a href="{% url 'account_logout' %}" class="dropdown-item">{% trans 'Logout' %}</a>
             {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">{% trans 'Register' %}</a>
