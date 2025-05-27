@@ -86,8 +86,8 @@ header {
 }
 
 .nav-icon:hover {
-  color: #000000; 
-  text-decoration: underline, #C80757;
+  color: #a9a9a9;
+  text-decoration: none;
 }
 
 /* Dropdown menu styles */
@@ -116,6 +116,10 @@ header {
   color: #C80757;
 }
 
+.dropdown-item:active {
+  background-color: #a9a9a9; 
+}
+
 .navbar-nav a {
   color: #C80757;
   text-decoration: none;
@@ -134,7 +138,6 @@ header {
 
 .icon:hover {
   color: #a9a9a9;
-  
 }
 
 @media (max-width: 992px) {
