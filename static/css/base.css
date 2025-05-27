@@ -10,6 +10,30 @@
   font-family: "Afacad", sans-serif;
 }
 
+/* Loading Overlay */
+body, html {
+    height: 100%;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1); /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.loading-logo {
+    max-width: 400px;
+}
+
 /* Header styles */
 header {
   background-color: #FFFFFF;
@@ -29,24 +53,19 @@ header {
 .main-logo-link {
   color: #000;
   text-decoration: none;
-}
-
-.logo-font {
-  font-size: 2rem;
-  white-space: nowrap;
-  color: black;
+  max-height: 100px;
 }
 
 .logo {
-  position: absolute; /* Position the logo absolutely */
-  margin-top: 20%;
-  z-index: 10000; /* Ensure the logo is above the navbar */
+    position: absolute; /* Position the logo absolutely */
+    margin-top: 5%;
+    z-index: 10000; /* Ensure the logo is above the navbar */
 }
 
 .logo-image {
-  max-height: 250px; 
+    max-height: 100px;
+    width: auto; /* Maintain aspect ratio */
 }
-
 
 .form-control {
   border-radius: 0;
