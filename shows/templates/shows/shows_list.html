@@ -4,6 +4,7 @@
 
 <!-- Extra CSS -->
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/shows.css' %}" />
 {% endblock %}
 
@@ -17,20 +18,69 @@
 <!-- Top Section -->
 <section class="top">
   <div class="container">
-  <h1 class="section-title mb-2">Tous les shows burlesques</h1>
+    <h1 class="page-title mb-2">Tous les shows burlesques</h1>
       <h2 class="section-title-h2 mb-2 d-flex align-items-center">
         Découvrez tous les shows burlesques du moment
         <span class="divider-line ml-2 d-flex align-items-center">
           💠<span class="line flex-grow-1 ml-2"></span>
         </span>
       </h2>
-      <p class="under_title mb-4">
+      <p class="under_title mb-5">
         Vous pouvez choisir la première lettre du spectacle qui vous intérèsse, sinon vous pouvez aussi filtrer grâce à la ville ou au prix.
       </p>
+    <div class="row abc mt-4 mb-5">
+      <div class="col text-center">
+        {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+          <a href="?starts_with={{ letter }}" class="btn btn-outline-secondary m-1">{{ letter }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row filter">
+      <form class="col-lg-12 justify-content-end d-flex">
+            <!-- Spectacle Type -->
+            <div class="form-group">
+              <label for="type">{% trans "Choisissez le type de spectacle" %}</label>
+              <select id="type" class="form-control map-form">
+                <option selected>Cabaret</option>
+                <option>Drag</option>
+                <option>Burlesque</option>
+                <option>Queer</option>
+              </select>
+            </div>
+  
+            <!-- City Input -->
+            <div class="form-group">
+              <label for="city">{% trans "Dans quelle ville ?" %}</label>
+              <input type="text" id="city" class="form-control map-form" placeholder="{% trans 'Entrez la ville' %}">
+            </div>
+  
+            <!-- Price Range -->
+            <div class="form-group">
+              <label>{% trans "Le prix" %}</label>
+              <input type="range" class="custom-range" min="0" max="100" step="1">
+              <div class="d-flex justify-content-between">
+                <span>0</span>
+                <span>100+</span>
+              </div>
+            </div>
+  
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mt-3 d-block mx-auto project-btn">
+              {% trans "Rechercher" %}
+            </button>
+          </form>
   </div>
 </section>
+
+<!-- View Section -->
 <section class="show-views">
   <div class="container">
+    <h3 class="section-title-h3 mb-4 d-flex align-items-center">
+        Les résultats de votre recherche
+        <span class="divider-line ml-2 d-flex align-items-center">
+          💠<span class="line flex-grow-1 ml-2"></span>
+        </span>
+      </h3>
     <div class="row">
       {% for show in page_obj %}
         <div class="col-12 col-sm-6 col-lg-3 mb-4">
@@ -70,6 +120,90 @@
         {% endif %}
       </ul>
     </nav>
+  </div>
+</section>
+
+<!-- Troops in the spotlight Section -->
+<section class="troops-section py-5">
+  <div class="container">
+      <h3 class="section-title mb-4 d-flex align-items-center">
+        Les troupes mises à l honneur
+        <span class="divider-line ml-2 d-flex align-items-center">
+          💠<span class="line flex-grow-1 ml-2"></span>
+        </span>
+      </h3>
+      <div class="row align-items-center">
+      
+          <!-- Left Text Column -->
+          <div class="col-md-6 px-4">
+            <h4 class="troop-title"><strong>Le K barré !</strong></h4>
+            <p class="troop-text">
+              Loreme Ipsum. Loreme ipsum lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum lorem ipsum 
+              lorem ipsum lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum.
+            </p>
+            <p class="troop-location mb-1">
+              Rue du Vieux Temple<br>
+              75019 Paris
+            </p>
+            <p class="troop-date">
+              Du 29 Jan au 30 Mars
+            </p>
+
+            <!-- Learn More Button -->
+            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+              {% trans "En savoir plus" %}
+            </button>
+          </div>
+
+          <!-- Right Image Column -->
+          <div class="col-md-6 text-center">
+            <img src="{% static 'images/troop.png' %}" alt="Burlesque Performance" class="img-fluid rounded">
+          </div>
+      </div>
+
+        <!-- Navigation and Pagination -->
+        <div class="d-flex justify-content-center align-items-center mt-4 position-relative">
+          <!-- Left Chevron -->
+          <div class="chevron chevron-left position-absolute" style="left: 0;">
+            <i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-diamonds d-flex gap-3">
+            <div class="diamond active">1</div>
+            <div class="diamond">2</div>
+            <div class="diamond">3</div>
+          </div>
+
+          <!-- Right Chevron -->
+          <div class="chevron chevron-right position-absolute" style="right: 0;">
+            <i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- Want to join? Section -->
+<section class="join-section in-shows py-5">
+  <div class="container">
+    <div class="row align-items-center">
+    <!-- Left Image Column -->
+      <div class="col-md-7 img-coloumn text-center">
+            <img src="{% static 'images/carneval.png' %}" alt="Relevant Article Photo" class="img-fluid article-img">
+      </div>
+    <!-- Right Text Column -->
+      <div class="col-md-5 mt-3 mb-2 text-coloumn">
+        <h3 class="section-title mb-4">Envie d’apparaitre sur le site  ?</h3>
+        <p class="join-text">
+          J’ai une troupe, je gère un cabaret et je veux avoir faire partie du site ? 
+        </p>
+        <!-- Learn More Button -->
+        <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+          {% trans "En savoir plus" %}
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 </div>

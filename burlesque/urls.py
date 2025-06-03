@@ -32,7 +32,7 @@ urlpatterns += i18n_patterns(
     path('', include('home.urls')),
     path('shows/', include('shows.urls')),
     prefix_default_language=False  # So English URLs remain unprefixed
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Serve static files in development
 if settings.DEBUG:
