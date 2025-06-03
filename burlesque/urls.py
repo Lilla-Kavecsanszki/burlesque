@@ -29,7 +29,8 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', include('home.urls')),  # your_app is likely named "home"
+    path('', include('home.urls')),
+    path('shows/', include('shows.urls')),
     prefix_default_language=False  # So English URLs remain unprefixed
 )
 

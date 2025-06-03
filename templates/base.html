@@ -94,7 +94,7 @@
                                         <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
+                                        <a class="nav-link" href="{% url 'shows' %}">{% trans 'Les Shows' %}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
@@ -114,7 +114,7 @@
                                         <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'home' %}#apartment-types">{% trans 'Les Shows' %}</a>
+                                        <a class="nav-link" href="{% url 'shows' %}">{% trans 'Les Shows' %}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">{% trans 'Les Artistes' %}</a>
@@ -270,9 +270,9 @@
             <!-- Column 2: Site Guests -->
             <div class="col-md-3 mb-3 mb-md-0">
                 <p>
-                    <a href="{% url 'home' %}#building" class="footer-link building-link">{% trans 'Les Shows' %}</a><br>
-                    <a href="{% url 'home' %}#location" class="footer-link location-link">{% trans 'Les Troupes' %}</a><br>
-                    <a href="{% url 'home' %}#location" class="footer-link location-link">{% trans 'Les Articles' %}</a><br>
+                    <a href="{% url 'shows' %}" class="footer-link building-link">{% trans 'Les Shows' %}</a><br>
+                    <a href="{% url 'home' %}" class="footer-link location-link">{% trans 'Les Troupes' %}</a><br>
+                    <a href="{% url 'home' %}" class="footer-link location-link">{% trans 'Les Articles' %}</a><br>
                 </p>
             </div>
 
