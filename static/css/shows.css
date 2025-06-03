@@ -45,6 +45,32 @@
   color: #9C0645;
 }
 
+/* ABC line */
+
+.letter {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 52;
+  line-height: 43px;
+  color: #DF0962;
+  border: transparent;
+}
+
+.letter:hover {
+  color: #ffffff;
+  background-color: #DF0962;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: transparent;
+}
+
+.letter:active {
+  background-color: #DF0962;
+  color: #ffffff;
+  transform: scale(0.95);
+  border: transparent;
+}
+
 .filter {
   margin-bottom: 3%;
 }
