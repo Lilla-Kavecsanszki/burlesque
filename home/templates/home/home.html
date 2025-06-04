@@ -93,10 +93,10 @@
             <!-- Price Range -->
             <div class="form-group">
               <label>{% trans "Le prix" %}</label>
-              <input type="range" name="price" value="{{ request.GET.price|default:100 }}" class="custom-range" min="0" max="100" step="1">
+              <input type="range" name="price" value="{{ request.GET.price|default:1000 }}" class="custom-range" min="0" max="100" step="1">
               <div class="d-flex justify-content-between">
                 <span>€0</span>
-                <span>€100+</span>
+                <span>€1000+</span>
               </div>
             </div>
   
@@ -160,6 +160,12 @@
         </div>
       {% endfor %}
     </div>
+    <!-- "Voir plus de résultats" Button -->
+    <div class="text-center mt-3">
+      <a href="{% url 'shows' %}" class="btn project-btn btn-outline-primary">
+        Voir plus de résultats
+      </a>
+    </div>
   </div>
 </section>
 
@@ -191,9 +197,11 @@
             </p>
 
             <!-- Learn More Button -->
-            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
-              {% trans "En savoir plus" %}
-            </button>
+            <a href="{% url 'teams' %}">
+              <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+                {% trans "En savoir plus" %}
+              </button>
+            </a>
           </div>
 
           <!-- Right Image Column -->
