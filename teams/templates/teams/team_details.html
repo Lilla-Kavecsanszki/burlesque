@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+{% endblock %}
+
+{% block title %}{{ team.name }} - Burlesque Team{% endblock %}
+
+{% block content %}
+<div class="burlesque-container">
+    <section class="hero">
+        <div id="hero-image" class="hero-image" role="img" aria-label="{{ team.name }}">
+            {% if team.image %}
+                <img src="{{ team.image.url }}" alt="{{ team.name }}" loading="lazy">
+            {% else %}
+                <img src="{% static 'images/default-team.jpg' %}" alt="{{ team.name }}" loading="lazy">
+            {% endif %}
+        </div>
+<!-- Text on the left -->
+    <div class="overlay">
+        <div class="welcome-heading">
+            <h1 class="team-welcome">{{ team.name }}</h1>
+            <p class="team-promise mt-3">{% trans "Bienvenue sur le site dédié à 100% au monde du spectacle burlesque, cabaret, queer, drag, etc...." %}</p>
+            <span class="typewriter nocaret"></span>
+        </div>
+    </div>
+</section>
+
+<!-- Artist Section -->
+<section class="artist-section py-5">
+  <div class="container">
+      <h3 class="section-title mb-4 d-flex align-items-center">
+        L’histoire, la biographie et la vie burlesque
+        <span class="divider-line ml-2 d-flex align-items-center">
+          💠<span class="line flex-grow-1 ml-2"></span>
+        </span>
+      </h3>
+      <div class="row">
+      
+          <!-- Left Text Column -->
+          <div class="col-md-6">
+            <p class="artist-description">{{ team.description }}</p>
+          </div>
+          <!-- Right Image Column -->
+          <div class="col-md-6">
+            <img src="{{ team.image.url }}" alt="{{ team.name }}" loading="lazy" class="img-fluid article-img">
+          </div>
+      </div>
+  </div>
+</section>
+</div>
+{% endblock %}

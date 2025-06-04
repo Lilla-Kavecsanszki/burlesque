@@ -104,7 +104,7 @@
                 <p class="card-text">{{ team.description|truncatewords:20 }}</p>
                 <div class="mt-auto text-center">
                   <a href="#" class="btn reserve-btn btn-primary me-2">Réserver</a>
-                  <a href="#" class="btn more-btn btn-outline-primary mt-2">En savoir plus</a>
+                  <a href="{% url 'team_details' team.id %}" class="btn more-btn btn-outline-primary mt-2">En savoir plus</a>
                 </div>
               </div>
             </div>

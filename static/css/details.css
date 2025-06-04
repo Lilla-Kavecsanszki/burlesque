@@ -1,0 +1,65 @@
+/* Hero section */
+.hero {
+    position: relative;
+    background: #000000;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+  
+  /* Image background */
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    height: 100%;
+    z-index: 2;
+  }
+  
+  .hero-image img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  /* Large welcome heading */
+  .overlay {
+    position: relative;
+    width: 583px;
+    height: 485px;
+    left: 0px;
+    top: 0;
+    background: transparent;
+  }
+  
+  .team-welcome {
+    position: absolute;
+    z-index: 3;
+    font-family: 'Abril Fatface', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 86px;
+    color: #F35C9B;
+  
+    width: 600px;
+    height: 172px;
+    left: 110px;
+    top: 245px;
+  }
+  
+  .team-promise {
+    position: absolute;
+    z-index: 3;
+    font-family: 'Afacad';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 43px;
+    color: #F35C9B;
+    top: 409px;
+
+     /* Shimmer effect */
+  position: relative;
+  overflow: hidden;
+}
