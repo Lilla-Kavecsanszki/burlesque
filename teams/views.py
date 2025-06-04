@@ -7,7 +7,7 @@ def teams_list(request):
     teams = Team.objects.all()
 
     if starts_with:
-        teams = teams.filter(title__istartswith=starts_with)
+        teams = teams.filter(name__istartswith=starts_with)
 
     paginator = Paginator(teams, 8)  # 8 items per page (2 rows x 4 per row)
     page_number = request.GET.get('page')

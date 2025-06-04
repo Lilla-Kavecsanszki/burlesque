@@ -5,11 +5,14 @@ class ShowAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "title",
+        "city",
         "address",
-        "dates",
+        "date",
+        "show_type",
+        "price",
     )
-    list_filter = ("address",)
-    search_fields = ("title", "address", "description")
-    ordering = ("title",)
+    list_filter = ("city", "show_type", "date")
+    search_fields = ("title", "address", "description", "city")
+    ordering = ("-date",)
 
 admin.site.register(Show, ShowAdmin)
