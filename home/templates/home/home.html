@@ -82,7 +82,12 @@
             <!-- City Input -->
             <div class="form-group">
               <label for="city">{% trans "Dans quelle ville ?" %}</label>
-              <input type="text" name="city" id="city" value="{{ request.GET.city }}" class="form-control map-form" placeholder="{% trans 'Entrez la ville' %}">
+              <select id="city" name="city" class="form-control map-form">
+                <option value="">{% trans "Toutes les villes" %}</option>
+                {% for c in available_cities %}
+                  <option value="{{ c }}" {% if request.GET.city == c %}selected{% endif %}>{{ c }}</option>
+                {% endfor %}
+              </select>
             </div>
   
             <!-- Price Range -->
@@ -138,19 +143,21 @@
             {% if show.image %}
               <img src="{{ show.image.url }}" class="card-img-top" alt="{{ show.title }}">
             {% endif %}
-            <div class="card-body d-flex flex-column text-center">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ show.title }}</h5>
-              <p class="card-text"><strong>{{ show.address }}</strong><br>{{ show.date }}</p>
+              <p class="card-text-address">{{ show.address }}<br><strong>{{ show.date }}</strong></p>
               <p class="card-text">{{ show.description|truncatewords:20 }}</p>
-              <div class="mt-auto">
-                <a href="#" class="btn btn-primary me-2">Réserver</a>
-                <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+              <div class="mt-auto text-center">
+                <a href="#" class="btn reserve-btn btn-primary me-2">Réserver</a>
+                <a href="#" class="btn more-btn btn-outline-primary mt-2">En savoir plus</a>
               </div>
             </div>
           </div>
         </div>
       {% empty %}
-        <p>Aucun spectacle trouvé avec ces critères.</p>
+        <div class="col-12 text-center">
+          <p class="text-muted mt-4">{% trans "Aucun spectacle trouvé avec ces critères." %}</p>
+        </div>
       {% endfor %}
     </div>
   </div>

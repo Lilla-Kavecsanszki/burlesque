@@ -79,10 +79,9 @@
   margin-right: 5%;
 }
 
-/* Show cards */
-
+  /* Show cards */
 .card {
-  border: 1px solid #ddd;
+  border: transparent;
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(176, 46, 12, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -91,7 +90,7 @@
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(176, 46, 12, 0.3);
+  box-shadow: 0 8px 16px rgba(156, 6, 69, 0.3);
 }
 
 .card-img-top {
@@ -102,26 +101,111 @@
 }
 
 .card-title {
-  font-family: 'Georgia', serif;
-  color: #b02e0c;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  font-family: 'Abril Fatface';
+  font-size: 24px;
+  color: #000000;
 }
 
-.card-text strong {
-  color: #444;
-  font-weight: 700;
+.card-text-address {
+  font-family: 'Afacad';
+  font-size: 12px;
+  color: #9C0645;
 }
+
+.card-text-address strong {
+  font-size: 14px;
+} 
 
 .card-text {
-  font-size: 0.9rem;
-  color: #555;
+  font-family: 'Afacad';
+  font-size: 16px;
+  color: #000000;
 }
 
 @media (max-width: 576px) {
   .card-img-top {
     height: 150px;
   }
+}
+
+.reserve-btn {
+  font-family: 'Akatab';
+  font-size: 18px;
+  text-align: center;
+  width: 185px;
+  color: #FFFFFF;
+  background: #DF0962;
+  border-radius: 10px;
+  text-shadow: 0px 1px 1px #9C0645;
+  border: transparent;
+}
+
+.reserve-btn:hover {
+  background: #FFFFFF;
+  border: 1px solid #DF0962;
+  color: #DF0962;
+  text-decoration: none;
+  box-shadow: 0px 1px 1px rgba(156, 6, 69, 0.3);
+}
+
+.more-btn {
+  font-family: 'Akatab';
+  font-size: 18px;
+  text-align: center;
+  width: 185px;
+  color: #9C0645;
+  background: rgba(255, 173, 204, 0.5);
+  border-radius: 10px;
+  text-shadow: 0px 1px 1px rgba(156, 6, 69, 0.3);
+  border: transparent;
+}
+
+.more-btn:hover {
+  background: #9C0645;
+  border: 1px solid rgba(255, 173, 204, 0.5);
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 1px 1px rgba(156, 6, 69, 0.3);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #9C0645;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background-color: #f8f9fa;
+  color: #740537;
+  box-shadow: 0 4px 10px rgba(156, 6, 69, 0.2);
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #9C0645;
+  border-color: #9C0645;
+  box-shadow: 0 4px 12px rgba(156, 6, 69, 0.3);
 }
 
 /* Want to join? Section */

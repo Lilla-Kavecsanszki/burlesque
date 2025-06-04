@@ -11,7 +11,7 @@ class ShowAdmin(admin.ModelAdmin):
         "show_type",
         "price",
     )
-    list_filter = ("city", "show_type", "date")
+    list_filter = ("featured_on_homepage", "city", "show_type", "date")
     search_fields = ("title", "address", "description", "city")
     ordering = ("-date",)
 

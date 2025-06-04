@@ -9,6 +9,7 @@ class Show(models.Model):
     ]
 
     title = models.CharField(max_length=100)
+    featured_on_homepage = models.BooleanField(default=False) # for paid display
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100, default='')  # for filtering
     date = models.DateField()
