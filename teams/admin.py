@@ -5,7 +5,9 @@ class TeamAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
-        "dates",
+        "date",
+        "city",
+        "show_type",
     )
     search_fields = ("name", "description")
     ordering = ("name",)

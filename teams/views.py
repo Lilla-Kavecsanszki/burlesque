@@ -4,16 +4,37 @@ from .models import Team
 
 def teams_list(request):
     starts_with = request.GET.get("starts_with")
+    team_type = request.GET.get("type")
+    city = request.GET.get("city")
+    price = request.GET.get("price")
+
     teams = Team.objects.all()
+    
+    available_cities = Team.objects.order_by('city').values_list('city', flat=True).distinct()
 
     if starts_with:
         teams = teams.filter(name__istartswith=starts_with)
 
-    paginator = Paginator(teams, 8)  # 8 items per page (2 rows x 4 per row)
+    if team_type:
+        teams = teams.filter(show_type__iexact=team_type)
+
+    if city:
+        teams = teams.filter(city__iexact=city)  # <-- use iexact to match selected dropdown value
+
+    if price:
+        try:
+            price = float(price)
+            teams = teams.filter(price__lte=price)
+        except ValueError:
+            pass
+
+    paginator = Paginator(teams, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'teams/teams_list.html', {
         'page_obj': page_obj,
         'starts_with': starts_with,
+        'available_cities': available_cities,
+        'request': request,
     })
