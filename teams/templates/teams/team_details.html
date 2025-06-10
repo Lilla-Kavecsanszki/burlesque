@@ -3,7 +3,9 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/details.css' %}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 {% endblock %}
 
 {% block title %}{{ team.name }} - Burlesque Team{% endblock %}
@@ -12,8 +14,8 @@
 <div class="burlesque-container">
     <section class="hero">
         <div id="hero-image" class="hero-image" role="img" aria-label="{{ team.name }}">
-            {% if team.image %}
-                <img src="{{ team.image.url }}" alt="{{ team.name }}" loading="lazy">
+            {% if team.main_image %}
+                <img src="{{ team.main_image.url }}" alt="{{ team.name }}" loading="lazy">
             {% else %}
                 <img src="{% static 'images/default-team.jpg' %}" alt="{{ team.name }}" loading="lazy">
             {% endif %}
@@ -33,9 +35,7 @@
   <div class="container">
       <h3 class="section-title mb-4 d-flex align-items-center">
         L’histoire, la biographie et la vie burlesque
-        <span class="divider-line ml-2 d-flex align-items-center">
-          💠<span class="line flex-grow-1 ml-2"></span>
-        </span>
+        <span class="divider-line flex-grow-1 ml-3"></span>
       </h3>
       <div class="row">
       
@@ -45,10 +45,118 @@
           </div>
           <!-- Right Image Column -->
           <div class="col-md-6">
-            <img src="{{ team.image.url }}" alt="{{ team.name }}" loading="lazy" class="img-fluid article-img">
+            <img src="{{ team.main_image.url }}" alt="{{ team.name }}" loading="lazy" class="img-fluid article-img">
           </div>
       </div>
   </div>
 </section>
-</div>
+
+<!-- Photo Section -->
+<section class="artist-section py-5">
+  <div class="container">
+      <h3 class="section-title mb-4 d-flex align-items-center">
+        Les photos de {{ team.name }}
+        <span class="divider-line flex-grow-1 ml-3"></span>
+      </h3>
+      <div class="row">
+        {% for photo in team.images.all %}
+          <div class="col-sm-6 col-md-4 mb-4">
+            <div class="media-box">
+              <img src="{{ photo.image.url }}" alt="Photo of {{ team.name }}">
+            </div>
+          </div>
+        {% endfor %}
+
+        {% for video in team.videos.all %}
+          <div class="col-sm-6 col-md-4 mb-4">
+            <div class="media-box">
+              <video controls>
+                <source src="{{ video.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</section>
+
+<!-- Show Carousel Section -->
+<section class="show-carousel-section py-5">
+  <div class="container">
+    <div class="d-flex align-items-center section-title mb-4">
+      <h3 class="mb-0">Ses prochains spectacles</h3>
+      <span class="divider-line flex-grow-1 ml-3"></span>
+    </div>
+
+    <div class="swiper mySwiper py-4">
+      <div class="swiper-wrapper">
+        {% for show in shows %}
+          <div class="swiper-slide">
+            <div class="card text-center p-3 bg-light">
+              <div class="text-muted small mb-2">Le {{ show.date|date:"d F Y" }}</div>
+              <img src="{{ show.image.url }}" class="img-fluid rounded mb-2" alt="{{ show.title }}">
+              <h5 class="mb-0">{{ show.title }}</h5>
+              <div class="small">{{ show.city }}</div>
+              <a href="#" class="btn btn-primary mt-2">Book Now</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Want to join? Section -->
+<section class="join-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+    <!-- Left Image Column -->
+      <div class="col-md-7 img-coloumn text-center">
+            <img src="{% static 'images/carneval.png' %}" alt="Relevant Article Photo" class="img-fluid article-img">
+      </div>
+    <!-- Right Text Column -->
+      <div class="col-md-5 mt-3 mb-2 text-coloumn">
+        <h3 class="section-title mb-4">Envie d’apparaitre sur le site  ?</h3>
+        <p class="join-text">
+          J’ai une troupe, je gère un cabaret et je veux avoir faire partie du site ? 
+        </p>
+        <!-- Learn More Button -->
+        <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+          {% trans "En savoir plus" %}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+window.onload = () => {
+  new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      576: { slidesPerView: 2 },
+      768: { slidesPerView: 3 },
+      992: { slidesPerView: 4 }
+    }
+  });
+};
+</script>
 {% endblock %}

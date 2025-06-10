@@ -2,6 +2,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from .models import Team
 from django.shortcuts import get_object_or_404
+from shows.models import Show
+
 
 def teams_list(request):
     starts_with = request.GET.get("starts_with")
@@ -43,6 +45,8 @@ def teams_list(request):
 
 def team_details(request, pk):
     team = get_object_or_404(Team, pk=pk)
+    shows = Show.objects.filter(featured_on_homepage=True).order_by('date')
     return render(request, 'teams/team_details.html', {
         'team': team,
+        'shows': shows,
     })
