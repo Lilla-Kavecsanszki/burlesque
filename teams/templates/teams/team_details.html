@@ -5,7 +5,6 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/details.css' %}" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 {% endblock %}
 
 {% block title %}{{ team.name }} - Burlesque Team{% endblock %}
@@ -82,30 +81,26 @@
 </section>
 
 <!-- Show Carousel Section -->
-<section class="show-carousel-section py-5">
+<section class="show-carousel-section carousel-wrapper py-5">
   <div class="container">
-    <div class="d-flex align-items-center section-title mb-4">
-      <h3 class="mb-0">Ses prochains spectacles</h3>
-      <span class="divider-line flex-grow-1 ml-3"></span>
-    </div>
-
-    <div class="swiper mySwiper py-4">
-      <div class="swiper-wrapper">
-        {% for show in shows %}
-          <div class="swiper-slide">
-            <div class="card text-center p-3 bg-light">
-              <div class="text-muted small mb-2">Le {{ show.date|date:"d F Y" }}</div>
-              <img src="{{ show.image.url }}" class="img-fluid rounded mb-2" alt="{{ show.title }}">
-              <h5 class="mb-0">{{ show.title }}</h5>
-              <div class="small">{{ show.city }}</div>
-              <a href="#" class="btn btn-primary mt-2">Book Now</a>
+      <h3 class="section-title mb-4 d-flex align-items-center">Ses prochains spectacles
+      <span class="divider-line flex-grow-1 ml-3"></span></h3>
+    <div class="owl-carousel owl-theme py-4">
+      {% for show in shows %}
+        <div class="item">
+          <div class="card-carousel show-card p-3 bg-transparent h-100">
+            <div class="card-text-address fw-bold mb-2">{{ show.date|date:"d F Y" }}</div>
+            <div class="show-img-wrapper mb-2">
+              <img src="{{ show.image.url }}" class="img-fluid rounded" alt="{{ show.title }}">
+            </div>
+            <h5 class="card-title mb-1">{{ show.title }}</h5>
+            <div class="card-text-address mb-2">{{ show.address }}</div>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary reserve-btn">Réserver</a>
             </div>
           </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -136,27 +131,5 @@
 
 
 {% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-window.onload = () => {
-  new Swiper('.mySwiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    breakpoints: {
-      576: { slidesPerView: 2 },
-      768: { slidesPerView: 3 },
-      992: { slidesPerView: 4 }
-    }
-  });
-};
-</script>
+
 {% endblock %}

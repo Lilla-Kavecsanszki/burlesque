@@ -149,9 +149,16 @@
 }
 
 .divider-line {
-  height: 3px;
+  height: 4px;
   background-color: #9C0645;
+  width: 100%;
+  border-radius: 999px; /* Fully rounded ends */
+  border: none;
 }
+
+/* i want the line to have rounded corners at the 2 ends almost like a very thin bar - how to?? 
+
+*/
 
 label {
 font-family: 'Afacad';

@@ -36,6 +36,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
@@ -313,6 +317,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- jQuery (required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <!-- Custom JavaScript for Loading Overlay -->
@@ -339,32 +346,27 @@
         }).toast("show");
     });
     </script>
-    
-    <!-- Audio -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const audio = document.getElementById('background-audio');
-            const toggleButton = document.getElementById('toggle-audio');
-    
-            // Set the initial button text
-            toggleButton.innerHTML = '<i class="fa-solid fa-volume-xmark fa-xl" style="color: #182d5f;"></i>';
-            let isPlaying = false; // Track the audio state
-    
-            // Function to toggle play/mute
-            toggleButton.addEventListener('click', () => {
-                if (isPlaying) {
-                    audio.pause(); // Pause the audio
-                    toggleButton.textContent = 'Play'; // Update button text
-                    toggleButton.innerHTML = '<i class="fa-solid fa-volume-xmark fa-xl" style="color: #182d5f;"></i> ';
-                } else {
-                    audio.play(); // Play the audio
-                    toggleButton.textContent = 'Mute'; // Update button text
-                    toggleButton.innerHTML = '<i class="fa-solid fa-volume-high fa-xl" style="color: #182d5f;"></i>';
-                }
-                isPlaying = !isPlaying; // Toggle the state
-            });
-        });
-    </script>    
+
+    <!-- Owl Carousel -->
+<script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      dots: true,
+      navText: [
+        '<i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color:#9C0645;"></i>',
+        '<i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color:#9C0645;"></i>'
+  ],
+      responsive: {
+        0: { items: 1 },
+        768: { items: 2 },
+        992: { items: 3 }
+      }
+    });
+  });
+</script>
 
 <!-- Custom JavaScript for Language Switching -->
 <script>
