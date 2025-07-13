@@ -1,0 +1,57 @@
+.top {
+    margin-top: 6%;
+}
+
+.burlesque-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #9C0645;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.burlesque-title::after {
+  content: "💋";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #9C0645;
+}
+
+input,
+textarea {
+  border: 2px solid #FFD4E6;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff0f7;
+  box-shadow: 0 4px 8px rgba(237, 169, 204, 0.3);
+  width: 100%;
+}
+
+.btn-pink {
+  background-color: #9C0645;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #80053a;
+  transform: scale(1.05);
+}
+
+.alert-success {
+  background-color: #ffd4e6;
+  color: #9C0645;
+  border: none;
+  font-weight: bold;
+}

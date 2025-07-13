@@ -33,6 +33,7 @@ urlpatterns += i18n_patterns(
     path('shows/', include('shows.urls')),
     path('teams/', include('teams.urls')),
     path('subscription/', include('subscription.urls')),
+    path("contact/", include("contact.urls")),
     prefix_default_language=False  # So English URLs remain unprefixed
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

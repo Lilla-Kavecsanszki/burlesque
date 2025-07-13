@@ -88,10 +88,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
                                         </li>
-                                        <!-- Display Subscription link only for superuser -->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'subscription' %}">{% trans 'Subscription' %}</a>
-                                        </li>
+                                        
                                     {% endif %}
                                     <!-- Always display the following items for authenticated users -->
                                     <li class="nav-item">
@@ -110,7 +107,10 @@
                                         <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
+                                        <a class="nav-link" href="{% url 'subscription' %}">{% trans 'Subscription' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'contact' %}">{% trans 'Contact' %}</a>
                                     </li>
                                 {% else %}
                                     <!-- Display items for non-authenticated users -->
@@ -130,7 +130,10 @@
                                         <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Les Articles' %}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'home' %}#contact-us">{% trans 'Contact' %}</a>
+                                        <a class="nav-link" href="{% url 'subscription' %}">{% trans 'Subscription' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'contact' %}">{% trans 'Contact' %}</a>
                                     </li>
                                 {% endif %}
                             </ul>                    
