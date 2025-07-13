@@ -139,56 +139,59 @@
         Les troupes mises à l honneur
         <span class="divider-line flex-grow-1 ml-3"></span>
       </h3>
-      <div class="row align-items-center">
-      
-          <!-- Left Text Column -->
-          <div class="col-md-6 px-4">
-            <h4 class="troop-title"><strong>Le K barré !</strong></h4>
-            <p class="troop-text">
-              Loreme Ipsum. Loreme ipsum lorem ipsum lorem ipsum lorem ipsum 
-              lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum lorem ipsum 
-              lorem ipsum lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum.
-            </p>
-            <p class="troop-location mb-1">
-              Rue du Vieux Temple<br>
-              75019 Paris
-            </p>
-            <p class="troop-date">
-              Du 29 Jan au 30 Mars
-            </p>
+      <div class="position-relative">
+        <!-- Carousel -->
+        <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
 
-            <!-- Learn More Button -->
-            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
-              {% trans "En savoir plus" %}
+              {% for team in teams %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row align-items-center">
+                  <!-- Left Text Column -->
+                  <div class="col-md-6 px-4">
+                    <h4 class="troop-title"><strong>{{ team.name }}</strong></h4>
+                    <p class="troop-text">{{ team.description }}</p>
+                    <p class="troop-location mb-1">{{ team.city }}</p>
+                    <p class="troop-date">{{ team.date|date:"d M Y" }}</p>
+
+                    <a href="{% url 'teams' %}">
+                      <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+                        {% trans "En savoir plus" %}
+                      </button>
+                    </a>
+                  </div>
+
+                  <!-- Right Image Column -->
+                  <div class="col-md-6 text-center">
+                    <img src="{{ team.main_image.url }}" alt="{{ team.name }}" class="img-fluid rounded">
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev chevron chevron-left" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+              <i class="fas fa-angles-left fa-2xl" style="color: #9C0645;"></i>
             </button>
-          </div>
 
-          <!-- Right Image Column -->
-          <div class="col-md-6 text-center">
-            <img src="{% static 'images/troop.png' %}" alt="Burlesque Performance" class="img-fluid rounded">
-          </div>
-      </div>
+            <!-- Custom Next Button -->
+            <button class="carousel-control-next chevron chevron-right" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+              <i class="fas fa-angles-right fa-2xl" style="color: #9C0645;"></i>
+            </button>
 
-        <!-- Navigation and Pagination -->
-        <div class="d-flex justify-content-center align-items-center mt-4 position-relative">
-          <!-- Left Chevron -->
-          <div class="chevron chevron-left position-absolute" style="left: 0;">
-            <i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i>
-          </div>
-
-          <!-- Pagination -->
-          <div class="pagination-diamonds d-flex gap-3">
-            <div class="diamond active">1</div>
-            <div class="diamond">2</div>
-            <div class="diamond">3</div>
-          </div>
-
-          <!-- Right Chevron -->
-          <div class="chevron chevron-right position-absolute" style="right: 0;">
-            <i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i>
+            <!-- Custom Pagination Diamonds -->
+            <div class="d-flex justify-content-center align-items-center mt-4 gap-3">
+              {% for team in teams %}
+                <div class="diamond {% if forloop.first %}active{% endif %}" 
+                    data-bs-target="#teamCarousel" 
+                    data-bs-slide-to="{{ forloop.counter0 }}">
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
-  </div>
+    </div>
 </section>
 
 <!-- Want to join? Section -->

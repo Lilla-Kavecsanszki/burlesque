@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from .models import Show
+from teams.models import Team
 
 def shows_list(request):
     starts_with = request.GET.get("starts_with")
@@ -31,6 +32,8 @@ def shows_list(request):
     paginator = Paginator(shows, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    
+    teams = Team.objects.all()
 
     return render(request, 'shows/shows_list.html', {
         'page_obj': page_obj,
@@ -39,4 +42,5 @@ def shows_list(request):
         'city': city,
         'available_cities': available_cities,
         'price': price,
+        'teams': teams,
     })

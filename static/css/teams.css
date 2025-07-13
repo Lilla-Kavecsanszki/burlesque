@@ -1,0 +1,41 @@
+
+/* Shows Carousel */
+/* Ensure all show cards are the same height */
+.show-card {
+  background-color: #fce1ec;
+  border-radius: 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Control the image height */
+.show-image img {
+  width: 100%;
+  height: 180px; /* fixed height */
+  object-fit: cover; /* crop while keeping aspect */
+  border-radius: 6px;
+}
+
+/* Optional: fix inner text layout */
+.show-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.show-address,
+.show-city {
+  font-size: 0.9rem;
+}
+
+.show-image {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.show-image img {
+  height: 100%;
+  object-fit: cover;
+}

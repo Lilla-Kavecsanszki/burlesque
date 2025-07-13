@@ -172,57 +172,61 @@
         Les troupes mises à l honneur
         <span class="divider-line flex-grow-1 ml-3"></span>
       </h3>
-      <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
+      <div class="position-relative">
+        <!-- Carousel -->
+        <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
 
-            {% for team in teams %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <div class="row align-items-center">
-                <!-- Left Text Column -->
-                <div class="col-md-6 px-4">
-                  <h4 class="troop-title"><strong>{{ team.name }}</strong></h4>
-                  <p class="troop-text">{{ team.description }}</p>
-                  <p class="troop-location mb-1">{{ team.city }}</p>
-                  <p class="troop-date">{{ team.date|date:"d M Y" }}</p>
+              {% for team in teams %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row align-items-center">
+                  <!-- Left Text Column -->
+                  <div class="col-md-6 px-4">
+                    <h4 class="troop-title"><strong>{{ team.name }}</strong></h4>
+                    <p class="troop-text">{{ team.description }}</p>
+                    <p class="troop-location mb-1">{{ team.city }}</p>
+                    <p class="troop-date">{{ team.date|date:"d M Y" }}</p>
 
-                  <a href="{% url 'teams' %}">
-                    <button class="btn btn-primary project-btn mt-2 px-4 py-2">
-                      {% trans "En savoir plus" %}
-                    </button>
-                  </a>
-                </div>
+                    <a href="{% url 'teams' %}">
+                      <button class="btn btn-primary project-btn mt-2 px-4 py-2">
+                        {% trans "En savoir plus" %}
+                      </button>
+                    </a>
+                  </div>
 
-                <!-- Right Image Column -->
-                <div class="col-md-6 text-center">
-                  <img src="{{ team.main_image.url }}" alt="{{ team.name }}" class="img-fluid rounded">
+                  <!-- Right Image Column -->
+                  <div class="col-md-6 text-center">
+                    <img src="{{ team.main_image.url }}" alt="{{ team.name }}" class="img-fluid rounded">
+                  </div>
                 </div>
               </div>
+              {% endfor %}
             </div>
-            {% endfor %}
-          </div>
 
-          <!-- Controls -->
-          <button class="carousel-control-prev chevron chevron-left" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
-            <i class="fas fa-angles-left fa-2xl"></i>
-          </button>
+            <!-- Controls -->
+            <button class="carousel-control-prev chevron chevron-left" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+              <i class="fas fa-angles-left fa-2xl" style="color: #9C0645;"></i>
+            </button>
 
-          <!-- Custom Next Button -->
-          <button class="carousel-control-next chevron chevron-right" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
-            <i class="fas fa-angles-right fa-2xl"></i>
-          </button>
+            <!-- Custom Next Button -->
+            <button class="carousel-control-next chevron chevron-right" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+              <i class="fas fa-angles-right fa-2xl" style="color: #9C0645;"></i>
+            </button>
 
-          <!-- Custom Pagination Diamonds -->
-          <div class="d-flex justify-content-center align-items-center mt-4 gap-3">
-            {% for team in teams %}
-              <div class="diamond {% if forloop.first %}active{% endif %}" 
-                  data-bs-target="#teamCarousel" 
-                  data-bs-slide-to="{{ forloop.counter0 }}">
-              </div>
-            {% endfor %}
+            <!-- Custom Pagination Diamonds -->
+            <div class="d-flex justify-content-center align-items-center mt-4 gap-3">
+              {% for team in teams %}
+                <div class="diamond {% if forloop.first %}active{% endif %}" 
+                    data-bs-target="#teamCarousel" 
+                    data-bs-slide-to="{{ forloop.counter0 }}">
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
-  </div>
+    </div>
 </section>
+
 <!-- Articles Section -->
 <section class="articles-section py-5">
   <div class="container">

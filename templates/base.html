@@ -370,7 +370,7 @@
   });
 </script>
 
-{% comment %} Home page - main carousel {% endcomment %}
+{% comment %} Home page - main and Teams carousel {% endcomment %}
 <script>
   const carousel = document.querySelector('#teamCarousel');
   const diamonds = document.querySelectorAll('.diamond');
@@ -381,6 +381,32 @@
     });
   });
 </script>
+
+{% comment %} Shows carousel {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const showCarousel = document.querySelector('#showCarousel');
+
+    if (showCarousel) {
+      const diamonds = document.querySelectorAll('[data-bs-target="#showCarousel"].diamond');
+
+      // Early exit if no diamonds found
+      if (!diamonds.length) {
+        console.warn('No diamonds found for #showCarousel');
+        return;
+      }
+
+      showCarousel.addEventListener('slid.bs.carousel', function (event) {
+        const activeIndex = event.to;
+
+        diamonds.forEach((diamond, index) => {
+          diamond.classList.toggle('active', index === activeIndex);
+        });
+      });
+    }
+  });
+</script>
+
 
 <!-- Custom JavaScript for Language Switching -->
 <script>

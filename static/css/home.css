@@ -412,6 +412,11 @@ color: black;
 }
 
 /* Teams carousel */
+.position-relative {
+  position: relative; /* ensures the chevrons are positioned from here */
+  overflow: visible;  /* let chevrons go beyond container */
+}
+
 .diamond {
   width: 20px;
   height: 20px;
@@ -428,25 +433,24 @@ color: black;
 
 .chevron {
   cursor: pointer;
-  color: #9C0645;
-  font-size: 2rem; 
+  font-size: 1rem; 
   transition: color 0.3s;
   position: absolute;
-  top: 30%;
+  top: 15%;
   z-index: 5;
   background: none;
   border: none;
 }
 
 .chevron-left {
-  left: 1.5%; 
+  left: -15%; 
 }
 
 .chevron-right {
-  right: 1.5%;
+  right: -15%;
 }
 
-.chevron:hover {
+.chevron i:hover {
   color: #ccc; 
 }
 

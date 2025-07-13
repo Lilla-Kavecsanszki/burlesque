@@ -6,6 +6,7 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/shows.css' %}" />
+<link rel="stylesheet" href="{% static 'css/teams.css' %}" />
 {% endblock %}
 
 {% block head %}
@@ -137,59 +138,59 @@
 <!-- Shows in the spotlight Section -->
 <section class="troops-section py-5">
   <div class="container">
-      <h3 class="section-title mb-4 d-flex align-items-center">
-        Ses prochains spectacles
-        <span class="divider-line flex-grow-1 ml-3"></span>
-      </h3>
-      <div class="row align-items-center">
-      
-          <!-- Left Text Column -->
-          <div class="col-md-6 px-4">
-            <h4 class="troop-title"><strong>Le K barré !</strong></h4>
-            <p class="troop-text">
-              Loreme Ipsum. Loreme ipsum lorem ipsum lorem ipsum lorem ipsum 
-              lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum lorem ipsum 
-              lorem ipsum lorem ipsum lorem ipsum. Loreme Ipsum. Loreme ipsum.
-            </p>
-            <p class="troop-location mb-1">
-              Rue du Vieux Temple<br>
-              75019 Paris
-            </p>
-            <p class="troop-date">
-              Du 29 Jan au 30 Mars
-            </p>
+    <h3 class="section-title mb-4 d-flex align-items-center">
+      Ses prochains spectacles
+      <span class="divider-line flex-grow-1 ml-3"></span>
+    </h3>
 
-            <!-- Learn More Button -->
-            <button class="btn btn-primary project-btn mt-2 px-4 py-2">
-              {% trans "En savoir plus" %}
-            </button>
-          </div>
-
-          <!-- Right Image Column -->
-          <div class="col-md-6 text-center">
-            <img src="{% static 'images/troop.png' %}" alt="Burlesque Performance" class="img-fluid rounded">
-          </div>
-      </div>
-
-        <!-- Navigation and Pagination -->
-        <div class="d-flex justify-content-center align-items-center mt-4 position-relative">
-          <!-- Left Chevron -->
-          <div class="chevron chevron-left position-absolute" style="left: 0;">
-            <i class="fas fa-sharp fa-thin fa-angles-left fa-2xl" style="color: #ffffff;"></i>
-          </div>
-
-          <!-- Pagination -->
-          <div class="pagination-diamonds d-flex gap-3">
-            <div class="diamond active">1</div>
-            <div class="diamond">2</div>
-            <div class="diamond">3</div>
-          </div>
-
-          <!-- Right Chevron -->
-          <div class="chevron chevron-right position-absolute" style="right: 0;">
-            <i class="fas fa-sharp fa-thin fa-angles-right fa-2xl" style="color: #ffffff;"></i>
-          </div>
+    <div class="position-relative">
+      <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
+        
+        <div class="carousel-inner">
+          {% for group in show_groups %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="row">
+                {% for show in group %}
+                  <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                    <div class="show-card p-2 h-100">
+                      <p class="show-date text-uppercase mb-1 text-pink small">
+                        Le {{ show.date|date:"d F Y" }}
+                      </p>
+                      <div class="show-image mb-2">
+                        <img src="{{ show.main_image.url }}" alt="{{ show.title }}" class="img-fluid rounded">
+                      </div>
+                      <h5 class="show-title mb-1">{{ show.title }}</h5>
+                      <p class="show-address mb-0">{{ show.address }}</p>
+                      <p class="show-city text-muted small mb-0">{{ show.city }}</p>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
         </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev chevron chevron-left" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
+          <i class="fas fa-angles-left fa-2xl" style="color: #9C0645;"></i>
+        </button>
+        <button class="carousel-control-next chevron chevron-right" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
+          <i class="fas fa-angles-right fa-2xl" style="color: #9C0645;"></i>
+        </button>
+
+        <!-- Diamond Pagination INSIDE showCarousel -->
+        <div class="d-flex justify-content-center align-items-center mt-4 gap-3">
+          {% for _ in show_groups %}
+            <div class="diamond {% if forloop.first %}active{% endif %}"
+                data-bs-target="#showCarousel"
+                data-bs-slide-to="{{ forloop.counter0 }}">
+            </div>
+          {% endfor %}
+        </div>
+
+      </div> <!-- END #showCarousel -->
+    </div>
+
   </div>
 </section>
 

@@ -17,5 +17,5 @@ class Show(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     booking_link = models.URLField(blank=True, null=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='shows_images/')
+    main_image = models.ImageField(upload_to='shows_images/')
     created_at = models.DateTimeField(auto_now_add=True)
