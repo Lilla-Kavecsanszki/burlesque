@@ -90,7 +90,7 @@
                                         </li>
                                         <!-- Display Subscription link only for superuser -->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">{% trans 'Subscription' %}</a>
+                                            <a class="nav-link" href="{% url 'subscription' %}">{% trans 'Subscription' %}</a>
                                         </li>
                                     {% endif %}
                                     <!-- Always display the following items for authenticated users -->

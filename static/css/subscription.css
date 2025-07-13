@@ -1,0 +1,89 @@
+.top {
+    margin-top: 9%;
+}
+
+.bg-black {
+    /* background-color: #000000; */
+    box-shadow: 0 10px 10px -4px rgba(237, 169, 204, 0.8);
+}
+
+/* === Card Sections === */
+.card {
+    border: transparent;
+    border-radius: 0;
+    box-shadow: transparent;
+}
+
+.top_card {
+  border: 3px solid #EDA9CC;
+  background-color: transparent;
+  margin-bottom: 5%;
+  padding: 5%;
+  border-radius: 0.5rem;
+}
+
+.bottom_card {
+  border: 3px solid #EDA9CC;
+  background-color: #EDA9CC;
+  padding: 5%;
+  border-radius: 0.5rem;
+}
+
+/* === Typography and Colors === */
+.text-pink {
+  color: #9C0645;
+}
+
+.pink-background {
+  background-color: #EDA9CC;
+  border-radius: 0.5rem;
+}
+
+.border-pink {
+  border-color: #9C0645 !important;
+}
+
+/* === Buttons === */
+.btn-outline-pink {
+  color: #9C0645;
+  background-color: #EDA9CC;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-pink:hover {
+  background-color: #9C0645;
+  border: 2px solid #9C0645;
+  color: #ffffff;
+}
+
+.btn-pink {
+  background-color: #EDA9CC;
+  color: #9C0645;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.year-text {
+  font-family: 'Afacad';
+  font-size: x-large;
+}
+
+/* === Optional: Remove focus outlines (cleaner UI) === */
+.btn-outline-pink:focus,
+.btn-pink:focus {
+  box-shadow: none;
+}
+
+/* === Responsive tweak (optional) === */
+@media (max-width: 576px) {
+  .top_card,
+  .bottom_card {
+    padding: 5%;
+  }
+}

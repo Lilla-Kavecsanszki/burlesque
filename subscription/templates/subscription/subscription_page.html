@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/shows.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/subscription.css' %}" />
+{% endblock %}
+
+{% block head %}
+  {{ block.super }}
+  <link rel="canonical" href="{{ canonical_url }}" />
+{% endblock %}
+
+{% block content %}
+<div class="burlesque-container">
+
+  <!-- Top Section -->
+  <section class="top">
+    <div class="container">
+      <h1 class="page-title mb-2">Nos propositions d’accompagnement</h1>
+      <h2 class="section-title-h2 mb-2 d-flex align-items-center">
+        Vous souhaitez que l’on travaille ensemble ?
+        <span class="divider-line flex-grow-1 ml-3"></span>
+      </h2>
+      <p class="under_title subscription_undertitle mb-4">
+        Vous trouverez ci-dessous nos différentes propositions pour vous accompagner dans votre visibilité.
+      </p>
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <p class="text-center mb-5">
+        Vous pouvez choisir de payer par mois sans engagement ou par an et bénéficier de 2 mois gratuits
+      </p>
+
+      <div class="row justify-content-center">
+
+        <!-- Plan 1 -->
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-2 border-pink text-center p-3 shadow-sm d-flex flex-column">
+            <div class="top_card">
+                <div class="pink-background">
+                <h4 class="text-pink fw-bold mb-1">3€/mois</h4>
+                <h5 class="mb-3">1 spectacle par mois</h5>
+                </div>
+                <p class="fw-bold text-pink">Un espace privé</p>
+                <ul class="list-unstyled small mb-4">
+                <li>Avec le lien vers vos réservations</li>
+                <li>Avec une présentation de votre spectacle</li>
+                <li>Avec une présentation de vos artistes</li>
+                <li>Référencement dans l’annuaire des spectacles et des artistes</li>
+                </ul>
+                <div class="mt-auto">
+                <button class="btn btn-outline-pink w-100 mb-2" data-plan="monthly_3">
+                    S'abonner – 3€/mois
+                </button>
+                </div>
+            </div>
+            <div class="bottom_card mt-auto">
+                <button class="btn btn-pink w-100 year-text" data-plan="annual_30">
+                S'abonner – 30€/an<br>
+                <span class="small">Soit 2 mois gratuits</span>
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-2 border-pink text-center p-3 shadow-sm d-flex flex-column">
+            <div class="top_card">
+                <div class="pink-background">
+                <h4 class="text-pink fw-bold mb-1">7€/mois</h4>
+                <h5 class="mb-3">2 et 4 spectacles par mois</h5>
+                </div>
+                <p class="fw-bold text-pink">Un espace privé</p>
+                <ul class="list-unstyled small mb-4">
+                <li>Avec le lien vers vos réservations</li>
+                <li>Avec une présentation de votre spectacle</li>
+                <li>Avec une présentation de vos artistes</li>
+                <li>Référencement dans l’annuaire des spectacles et des artistes</li>
+                </ul>
+                <div class="mt-auto">
+                <button class="btn btn-outline-pink w-100 mb-2" data-plan="monthly_7">
+                    S'abonner – 7€/mois
+                </button>
+                </div>
+            </div>
+            <div class="bottom_card mt-auto">
+                <button class="btn btn-pink w-100 year-text" data-plan="annual_70">
+                S'abonner – 70€/an<br>
+                <span class="small">Soit 2 mois gratuits</span>
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 border-2 border-pink text-center p-3 shadow-sm d-flex flex-column">
+            <div class="top_card">
+                <div class="pink-background">
+                <h4 class="text-pink fw-bold mb-1">20€/mois</h4>
+                <h5 class="mb-3">+ de 4 spectacles par mois</h5>
+                </div>
+                <p class="fw-bold text-pink">Un espace privé</p>
+                <ul class="list-unstyled small mb-4">
+                <li>Avec le lien vers vos réservations</li>
+                <li>Avec une présentation de votre spectacle</li>
+                <li>Avec une présentation de vos artistes</li>
+                <li>Référencement dans l’annuaire des spectacles et des artistes</li>
+                </ul>
+                <div class="mt-auto">
+                <button class="btn btn-outline-pink w-100 mb-2" data-plan="monthly_20">
+                    S'abonner – 20€/mois
+                </button>
+                </div>
+            </div>
+            <div class="bottom_card mt-auto">
+                <button class="btn btn-pink w-100 year-text" data-plan="annual_200">
+                S'abonner – 200€/an<br>
+                <span class="small">Soit 2 mois gratuits</span>
+                </button>
+            </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+  </section>
+
+</div>
+{% endblock %}

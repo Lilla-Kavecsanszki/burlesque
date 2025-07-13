@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "shows",
     "teams",
     "contact",
+    "subscription"
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap4"]
