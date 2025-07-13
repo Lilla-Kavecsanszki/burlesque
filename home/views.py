@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from shows.models import Show
+from teams.models import Team
 from datetime import datetime
 
 def homepage(request):
@@ -37,9 +38,12 @@ def homepage(request):
     else:
         # Show up to 4 promoted shows
         shows = Show.objects.filter(featured_on_homepage=True).order_by('-date')[:4]
+        
+    teams = Team.objects.all()  
 
     return render(request, 'home/home.html', {
         'shows': shows,
         'available_dates': available_dates,
         'available_cities': available_cities,
+        'teams': teams,
     })

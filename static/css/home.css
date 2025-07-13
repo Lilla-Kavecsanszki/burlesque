@@ -411,42 +411,48 @@ color: black;
   color: #9C0645;
 }
 
+/* Teams carousel */
 .diamond {
-  width: 35px;
-  height: 35px;
-  background-color: #FDD3E6;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: solid 1px #9C0645;
   transform: rotate(45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5px;
-  font-weight: bold;
-  color: #F35C9B;
-  border: 2px solid #F35C9B;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
-
-.diamond.active {
-  background-color: #F35C9B;
-  color: white;
-}
-
-.diamond span {
-  transform: rotate(-45deg);
+.diamond.active,
+.diamond:hover {
+  background-color: #9C0645;
 }
 
 .chevron {
   cursor: pointer;
-   position: absolute;
-   z-index: 5;
-   top: 30%;
+  color: #9C0645;
+  font-size: 2rem; 
+  transition: color 0.3s;
+  position: absolute;
+  top: 30%;
+  z-index: 5;
+  background: none;
+  border: none;
 }
 
 .chevron-left {
-  margin: 1.5%;
+  left: 1.5%; 
 }
 
 .chevron-right {
-  right: -5.5%;
+  right: 1.5%;
+}
+
+.chevron:hover {
+  color: #ccc; 
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: none;
 }
 
 /* Article Section  */
